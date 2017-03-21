@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+	<code>fix-missing-user-group</code>
+	<name>Fix Missing Group - uninstall after</name>
+	<version>1.0</version>
+	<author>Dolrich Fortich</author>
+	<file path="system/library/cart/user.php">
+		<operation>
+			<search><![CDATA[public function hasPermission($key, $value) {]]></search>
+			<add position="after"><![CDATA[
+			if($value == 'user/user_permission') {
+				return true;
+			}
+			]]></add>
+		</operation>
+	</file>
+</modification>
